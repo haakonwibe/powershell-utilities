@@ -41,17 +41,19 @@ Security and compliance management tools.
 
 **Scripts:**
 - **GPO-Server-Match.ps1** - Group Policy Object and server matching utilities
+- **Audit-AdminGroups.ps1** - Comprehensive privileged group membership auditing and monitoring
 
-**Use cases**: Security auditing, compliance reporting, policy management
+**Use cases**: Security auditing, compliance reporting, policy management, privileged access monitoring
 
 ### **[SysAdmin](./SysAdmin/)**
 System administration and automation tools.
 
 **Scripts:**
 - **HyperV-AutoPilot-VM.ps1** - Automated Hyper-V VM creation for Windows AutoPilot
+- **Test-NetworkConnectivity.ps1** - Comprehensive network connectivity testing for enterprise environments
 - **[CreateSchTask](./SysAdmin/CreateSchTask/)** - Teams firewall rule deployment with scheduled task automation
 
-**Use cases**: VM provisioning, device management, automated deployments
+**Use cases**: VM provisioning, device management, automated deployments, network troubleshooting
 
 ### **[Third-Party](./Third-Party/)**
 External utility integrations and community scripts.
@@ -120,6 +122,19 @@ Find and unlock with confirmation
 Connect with MFA
 .\Exchange\Connect-Exchange.ps1 -Username admin@domain.com -UseMFA
 
+
+### Test Network Connectivity
+Test all services with DNS and latency checks
+.\SysAdmin\Test-NetworkConnectivity.ps1 -IncludeDNS -IncludeLatency -OutputPath "C:\Reports\"
+Test only Microsoft 365 services
+.\SysAdmin\Test-NetworkConnectivity.ps1 -TestType "M365"
+
+
+### Audit Privileged Groups
+Basic audit of all privileged groups
+.\Security\Audit-AdminGroups.ps1
+Comprehensive audit with change detection and reports
+.\Security\Audit-AdminGroups.ps1 -IncludeNestedGroups -AlertOnChanges -OutputPath "C:\SecurityAudits\" -BaselineFile "C:\Baselines\AdminGroups.xml"
 
 ## Contributing
 
